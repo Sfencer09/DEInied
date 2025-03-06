@@ -88,6 +88,9 @@ def fill_form(driver, file_attachment):
         console.log(f"{log_success}Email input filled with {random_email}!")
     except Exception as e:
         console.log(f"[bold red][!][/] Failed to fill email input: {e}")
+        console.log(f"{log_debug}Email input not found. Reloading the page to reset state.")
+        driver.get("https://enddei.ed.gov/")
+        return False  # Indicate failure so the main loop can skip further processing
 
     try:
         location_input = WebDriverWait(driver, 10).until(
@@ -131,6 +134,9 @@ def fill_form(driver, file_attachment):
         console.log(f"{log_success}File input set with file: {file_to_upload}")
     except Exception as e:
         console.log(f"[bold red][!][/] Failed to upload file: {e}")
+
+    return True  # Indicate success
+
 
 def click_submit(driver):
     try:
