@@ -1,3 +1,5 @@
+<img src="DEInied.png" height="300" width="300">
+ 
 # Setup
 
 You will need to get `chromedriver` from here for your version of chrome: https://googlechromelabs.github.io/chrome-for-testing/
