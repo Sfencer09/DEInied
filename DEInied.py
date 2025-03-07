@@ -49,6 +49,7 @@ class MyScraper:
     def build_driver(self):
         chrome_options = ChromeOptions()
         chrome_options.add_argument('--user-data-dir=./user_profile')
+        chrome_options.add_argument("--ignore-certificate-errors")
         chrome_prefs = {'excludeSwitches': ['disable-component-update']}
         capabilities = DesiredCapabilities.CHROME.copy()
         capabilities['goog:chromeOptions'] = chrome_prefs
@@ -59,7 +60,6 @@ class MyScraper:
         }
         if self.proxy:
             seleniumwire_options['proxy'] = {
-                'http': self.proxy,
                 'https': self.proxy,
             }
             console.log(f"{log_debug}Using proxy: {self.proxy}")
