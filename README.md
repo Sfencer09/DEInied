@@ -19,6 +19,20 @@ pip install -r requirements.txt
 python3 DEInied.py --help
 ```
 
+If you get certificate errors, you might need to add your Selenium Wire CA cert to the trust store.
+ 
+Linux:
+```shell
+python -m seleniumwire extractcert
+sudo cp ./ca.crt /usr/local/share/ca-certificates/seleniumwire-ca.crt
+sudo update-ca-certificates
+```
+OSX:
+```shell
+python -m seleniumwire extractcert
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ./ca.crt
+```
+
 # Usage
 
 This will upload the file you specify, and you can use a residential rotating proxy service to increase success chances.
