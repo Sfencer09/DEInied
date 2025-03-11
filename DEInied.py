@@ -185,6 +185,7 @@ def main(file_attachment, proxy):
             console.log(f"{log_debug}No definitive navigation detected. Refreshing form.")
             driver.get(original_url)
             time.sleep(2)
+        del driver.requests # Clear temp storage
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
